@@ -6,13 +6,14 @@ on:
       - feature/*
 
 jobs:
+
   createPullRequest:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
+      - name: Checkout code
         uses: actions/checkout@v2
-      
+
       - name: Create Pull Request
         uses: repo-sync/pull-request@v2
         with:
