@@ -25,7 +25,7 @@ jobs:
     needs: build # O estágio de qualidade depende de estágio de build
     runs-on: ubuntu-latest
 
-    stpes:
+    steps:
       - name: Fase de Qualidade
         run: echo "Executando Deploy de QA"
   
