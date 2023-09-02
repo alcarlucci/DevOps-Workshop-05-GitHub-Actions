@@ -21,7 +21,7 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: '🔑 Get AKS Credentials'
-        run: az aks get-credentials --resource-group mdc-rgd --name mdc-aks --overwrite-existing
+        run: az aks get-credentials --resource-group mdc-rg --name mdc-aks --overwrite-existing
 
       - name: '🛳 Deploy to AKS'
         run: kubectl apply -f kube-manifest/prd/deployment.yaml
