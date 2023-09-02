@@ -1,0 +1,35 @@
+name: docker_build_push_acr
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  docker_build_push_acr:
+    name: "Docker Build and Push to ACR"
+    runs-on: ubuntu-latest
+    enviroment: production
+
+    defaults:
+      run:
+        shell: bash
+    
+    steps:
+      - name: ⬇️ Checkout
+        uses: actions/checkout@v2
+      
+      - name: 🔑 'Docker Login'
+        uses: azure/docker-login@v1
+        with:
+          login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+      
+      - name: 🐳 Docker build
+        uses: docker/build-push-action@v4
+        with:
+          context: ./app
+          push: true
+          tags: ${{ secrets.REGISTRY_LOGIN_SERVER }}/mdc-app:latest
