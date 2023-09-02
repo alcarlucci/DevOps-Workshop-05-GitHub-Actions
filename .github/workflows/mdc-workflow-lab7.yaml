@@ -1,4 +1,4 @@
-name: Create AWS Instance
+name: Create AWS Instance / Ansible
 
 env:
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
