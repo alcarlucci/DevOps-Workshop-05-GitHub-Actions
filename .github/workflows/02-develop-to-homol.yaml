@@ -37,7 +37,7 @@ jobs:
         uses: repo-sync/pull-request@v2
         with:
           github_token: ${{ secrets.TOKEN_GB }}
-          destination_branch: "master"  # Merge into this branch
+          destination_branch: "main"  # Merge into this branch
           pr_title: "Automated PR from ${{ github.ref }}"
           pr_body: "## 🚀 Changes Introduced\n\nDescrição das principais mudanças que este PR traz.\n\n## 🖼️ Screenshots\n\n## ⚙️ Testes\n\n## 📦 Dependências\n\n##  Miscelânea \n\n## ☑️ Checklist\n\n- [ ] Código testado\n- [ ] Documentação atualizada\n- [ ] Reviewers alocados\n\n## 🎉 Como testar"
           pr_draft: false
