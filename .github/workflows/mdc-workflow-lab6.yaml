@@ -71,7 +71,7 @@ jobs:
     needs: [Deploy_Terraform]
     runs-on: ubuntu-latest
 
-    if: github.event.inputs.destroyInfra == "true"
+    if: github.event.inputs.destroyInfra == 'true'
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
